@@ -6,10 +6,6 @@ Perspective-Aware Vision Inspector is a classical Computer Vision system for fea
 
 This project is a classical Computer Vision system built around a practical question:
 
-> Can a planar visual object be located inside a perspective-distorted scene, while also exposing the low-level image features used to make that decision?
-
-Instead of implementing unrelated algorithms independently, the project uses them as stages of one inspection pipeline:
-
 **scene → smoothing → gradients → edges → geometric features → local feature matching → RANSAC homography → rectification**
 
 The implementation is command-line based and produces inspectable intermediate results.
@@ -91,32 +87,7 @@ The `results` directory contains:
 
 Feature matching can contain incorrect correspondences. A homography estimated from every match would therefore be unreliable. RANSAC repeatedly considers subsets of correspondences and selects a transformation supported by a consistent group of points. The final inlier count provides a simple quantitative measure of geometric consistency.
 
-## Project structure
 
-```text
-cv-surface-inspector/
-├── README.md
-├── requirements.txt
-├── .gitignore
-├── data/
-│   ├── reference_board.jpg
-│   └── campus_scene.jpg
-├── results/
-├── report/
-│   └── PROJECT_REPORT.md
-└── src/
-    └── vision_inspector.py
-```
-
-## Using your own images
-
-The scene and reference do not have to be the supplied files.
-
-```bash
-python src/vision_inspector.py --scene path/to/scene.jpg --reference path/to/reference.jpg --out results
-```
-
-For reliable homography estimation, the reference should show a mostly planar object that is visible in the scene with sufficient overlap and texture.
 
 ## Reproducibility
 
@@ -126,6 +97,3 @@ The repository includes its own reference and scene images, so a fresh clone can
 
 A high number of ORB matches alone does not prove that the object was correctly located. The RANSAC inlier count and the visual position of the projected quadrilateral should be considered together.
 
-## Academic use
-
-Run the experiment yourself, inspect the generated outputs, and write the final observations in your own words. Do not claim results that you did not execute.
