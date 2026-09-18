@@ -1,0 +1,14 @@
+PERSPECTIVE-AWARE VISION INSPECTOR
+====================================
+Scene size: 1000 x 720
+Canny thresholds: 45, 135
+Edge density: 0.0177
+Harris corner candidates: 7613
+Hough line segments: 40
+Mean detected line length: 280.33 px
+External contours: 41
+Largest external contour area: 344956.50 px^2
+Reference ORB keypoints: 1618
+Ratio-test matches: 457
+RANSAC inliers: 382
+Inlier ratio among accepted matches: 0.8359
